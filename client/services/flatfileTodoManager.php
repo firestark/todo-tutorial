@@ -11,6 +11,11 @@ class flatfileTodoManager implements todo\manager
         $this->todos = $todos;
     }
 
+    function all ( ) : array
+    {
+        return $this->todos;
+    }
+
     function add ( todo $todo )
     {
         $this->todos [ $todo->id ] = $todo;

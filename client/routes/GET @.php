@@ -2,5 +2,5 @@
 
 route::get ( '/', function ( )
 {
-    return view::make ( 'todo/list' );
+    return app::fulfill ( 'i want to see my to-dos' );
 } );

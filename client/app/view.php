@@ -16,8 +16,11 @@ class view
         $this->basedir = $basedir;
     }
 
-    function make ( string $view ) : response
+    function make ( string $view, array $parameters = [ ] ) : response
     {
-        return $this->response->ok ( file_get_contents ( $this->basedir . '/' . $view . '.php' ) );
+        extract ( $parameters );
+        ob_start ( );
+        require $this->basedir . '/' . $view . '.php';
+        return $this->response->ok ( ob_get_clean ( ) );
     }
 }
