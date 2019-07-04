@@ -22,6 +22,11 @@ class flatfileTodoManager implements todo\manager
         $this->write ( );
     }
 
+    function has ( todo $todo ) : bool
+    {
+        return isset ( $this->todos [ $todo->id ] );
+    }
+
     function hasTodoWithDescription ( string $description ) : bool
     {
         foreach ( $this->todos as $todo )
@@ -29,6 +34,12 @@ class flatfileTodoManager implements todo\manager
                 return true;
         
         return false;
+    }
+
+    function update ( todo $todo )
+    {
+        $this->todos [ $todo->id ] = $todo;
+        $this->write ( );
     }
 
     private function write ( )

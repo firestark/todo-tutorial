@@ -11,4 +11,8 @@ interface manager
     function add ( todo $todo );
 
     function all ( ) : array;
+
+    function has ( todo $todo ) : bool;
+
+    function update ( todo $todo );
 }
