@@ -2,6 +2,6 @@
 
 <ul>
     <?php foreach ( $todos as $todo ) : ?>
-        <li><?= $todo->description; ?></li>
+        <li><a href="/<?= $todo->id; ?>"><?= $todo->description; ?></a></li>
     <?php endforeach; ?>
 </ul>

@@ -16,12 +16,17 @@ class flatfileTodoManager implements todo\manager
         return $this->todos;
     }
 
+    function find ( todo $todo ) : todo
+    {
+        return $this->todos [ $todo->id ];
+    }
+
     function add ( todo $todo )
     {
         $this->todos [ $todo->id ] = $todo;
         $this->write ( );
     }
-
+    
     function has ( todo $todo ) : bool
     {
         return isset ( $this->todos [ $todo->id ] );
@@ -39,6 +44,12 @@ class flatfileTodoManager implements todo\manager
     function update ( todo $todo )
     {
         $this->todos [ $todo->id ] = $todo;
+        $this->write ( );
+    }
+
+    function remove ( todo $todo )
+    {
+        unset ( $this->todos [ $todo->id ] );
         $this->write ( );
     }
 
